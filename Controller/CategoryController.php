@@ -36,7 +36,7 @@ class CategoryController
     function deleteCategories($id_categoria)
     {
         $productos = $this->model->getProductsByCategory($id_categoria);
-        if (($productos)>0){
+        if (count($productos)>0){
             $this->view->mostrarError("Elimine primero los siguientes productos de la categoria", $productos);
         } else{
             $this->model->deleteCategoriesFromDB($id_categoria);
